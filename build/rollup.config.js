@@ -92,7 +92,7 @@ if (!argv.format || argv.format === 'es') {
     input: 'src/entry.esm.ts',
     external,
     output: {
-      file: 'dist/vue-share-modal.esm.js',
+      file: 'dist/share-modal.esm.js',
       format: 'esm',
       exports: 'named',
     },
@@ -131,7 +131,7 @@ if (!argv.format || argv.format === 'cjs') {
     external,
     output: {
       compact: true,
-      file: 'dist/vue-share-modal.ssr.js',
+      file: 'dist/share-modal.ssr.js',
       format: 'cjs',
       name: 'VueShareModal',
       exports: 'auto',
@@ -154,7 +154,7 @@ if (!argv.format || argv.format === 'iife') {
     external,
     output: {
       compact: true,
-      file: 'dist/vue-share-modal.min.js',
+      file: 'dist/share-modal.min.js',
       format: 'iife',
       name: 'VueShareModal',
       exports: 'auto',
