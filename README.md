@@ -1,69 +1,223 @@
-# ShareModal component
 
-![ShareModal prevue](https://github.com/sttatusx/vue-share-modal/raw/main/screenshot.png)
+## vue-share-modal
 
-<br>
+A pure, lightweight, and beautiful share modal for Vue 3  
+  ‌
 
-## About VueShareModal
+![screenshot](https://github.com/sttatusx/vue-share-modal/raw/main/screenshot.png)  
 
-lightweight single file component for vue v2.6 with no extra dependency
+  ‌
+  ‌
 
-<br>
-<br>
-
-## How to use it?
-
-you can use this component like any other vue native components.
-
-<br>
+## 💾 Install
 
 ```shell
-# npm
-npm install vue-share-modal
+$ yarn add vue-share-modal
+# npm install vue-share-modal
+```
+Or you can use any package manager you want
 
-# yarn
-yarn add vue-share-modal
+  ‌
+
+## 🚀 Usage
+
+You should import **share-modal** and **share-module** components from the vue-share-modal 
+package and use them like this.  
+  ‌
+
+```vue
+<template>
+  <share-modal
+    :show="showModal"
+    @update:show="showModal = false"
+    link="https://www.figma.com/community/file/999287868143091993"
+  >
+    <template v-for="(m, key) in modules" :key="key">
+      <share-module tag="a" href="#" :name="m.name">
+        <component :is="m.component" />
+      </share-module>
+    </template>
+  </share-modal>
+</template>
+
+<script>
+import ShareModal from "vue-share-modal";
+import ShareModule from "vue-share-modal/src/components/share-module.vue";
+import { ChatCircle, Instagram, Twitch, At, Share, Twitter } from "@salmon-ui/icons";
+
+export default {
+  name: "MyComponent",
+
+  components: {
+    At,
+    Share,
+    Twitch,
+    Twitter,
+    Instagram,
+    ChatCircle,
+    ShareModal,
+    ShareModule,
+  },
+
+  data() {
+    return {
+      showModal: true,
+    };
+  },
+
+  computed: {
+    modules() {
+      return [
+        { name: "Chat", component: ChatCircle },
+        { name: "Instagram", component: Instagram },
+        { name: "Twitter", component: Twitter },
+        { name: "Twitch", component: Twitch },
+        { name: "E-mail", component: At },
+        { name: "More", component: Share },
+      ];
+    },
+  },
+};
+</script>
+```
+  ‌
+
+> NOTE: vue-share-modal does not contain any icons by default. So we use **@salmon-ui/icons** package for example here
+
+  ‌
+  
+## Options Or Props ( share-modal )
+
+```show``` prop is used for showing modal with animation  
+```@update:show``` event is used to update ```show``` value  
+
+```vue
+<share-modal
+  :show="showModal"
+  @update:show="showModal = false"
+/>
 ```
 
-<br>
-<br>
+  ‌
+  
+```link``` prop is used for showing link in the footer  
 
-### List of props:
+```vue
+<share-modal
+  link="https://www.figma.com/community/file/999287868143091993"
+/>
+```
 
-<br>
+  ‌
+  
+```mode``` prop is used for changing modal style ( ```normal``` / ```outline``` )  
 
-| Props         | Type     | Default  | Properties       |
-| ------------- | -------- | -------- | ---------------- |
-| **Mode**      | _String_ | `normal` | normal / outline |
-| **Link**      | _String_ | `none`   | \*               |
-| **Titles**    | _Object_ | `none`   | \*               |
-| **Colors**    | _Object_ | `none`   | \*               |
-| **Modules**   | _Array_  | `none`   | \*               |
-| **Direction** | _String_ | `ltr`    | rtl / ltr        |
+```vue
+<share-modal
+  mode="outline"
+/>
+```
 
-<br>
-<br>
+  ‌
+  
+```direction``` prop is used for changing modal direction ( ```ltr``` / ```rtl``` )  
 
-### List of events:
+```vue
+<share-modal
+  direction="rtl"
+/>
+```
 
-<br>
+  ‌
+  
+```title``` prop is used for changing modal title  
 
-| Events    | Name     |
-| --------- | -------- |
-| **Close** | on-close |
+```vue
+<share-modal
+  title="Share with"
+/>
+```
 
-<br>
+  ‌
+  
+```footerHint``` prop is used for changing the footer text  
 
-there is no default option for **Modules**, **Colors** Or **Titles** props but you can pass these options
+```vue
+<share-modal
+  footerHint="Or share with link"
+/>
+```
 
-<br>
+  ‌
+  
+```variables``` prop is used for changing the modal CSS variables ( like font-family and colors )  
 
-**Link:** "https://www.figma.com/community/file/999287868143091993"
+```vue
+<share-modal
+  :variables="{
+    fontFamily: 'Inter, sans-serif',
+    red: '#ee4d4d',
+    white: '#fefefe',
+    primary: '#ee6c4d',
+    primaryLight: '#ee6c4d08',
+    secondary: '#3d5a80',
+    secondaryLight: '#3d5a8096',
+  }"
+/>
+```
 
-<br>
+  ‌
+  
 
-**Titles:** { header: 'Share with' footerShareText: 'Or share with link' }
+## Options Or Props ( share-module )
 
-<br>
+```tag``` generated tag for share-module component ( default: ```span``` )   
 
-**Modules:** [{ id: 0, name: "", icon: "bi bi-twitter" component: 'a', props: { href="#" }, events: { click: () => {} } }]
+```vue
+<share-module
+  tag="a"
+/>
+```
+
+  ‌
+  
+```name``` name of the module   
+
+```vue
+<share-module
+  tag="a"
+  name="Pinterest"
+/>
+```
+
+  ‌
+  
+
+```iconClassName``` you can pass this prop to use font icons   
+
+```vue
+<share-module
+  tag="a"
+  name="Twitter"
+  iconClassName="bi bi-twitter"
+/>
+```
+
+  ‌
+  
+```mode``` you can pass this prop to overwrite share-modal ```mode``` prop   
+
+```vue
+<share-modal mode="outline">
+  <share-module
+    tag="a"
+    mode="normal"
+  />
+</share-modal>
+```
+  ‌
+
+
+## 📝 License
+
+This project is under [ISC](https://github.com/sttatusx/vue-share-modal/blob/master/LICENSE) license
