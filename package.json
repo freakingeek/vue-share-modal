@@ -1,7 +1,7 @@
 {
   "name": "vue-share-modal",
   "version": "2.0.0",
-  "description": "",
+  "description": "Lightweight share modal component for vue 3 with no dependency",
   "main": "dist/vue-share-modal.ssr.js",
   "browser": "dist/vue-share-modal.esm.js",
   "module": "dist/vue-share-modal.esm.js",
