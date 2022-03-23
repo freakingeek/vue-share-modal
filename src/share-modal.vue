@@ -116,6 +116,10 @@ export default /*#__PURE__*/ defineComponent({
 
   mounted() {
     this.setVariables();
+
+    document.addEventListener("keydown", (event: KeyboardEvent) => {
+      if (event.code === "Escape") this.onClose();
+    });
   },
 
   methods: {
@@ -130,6 +134,7 @@ export default /*#__PURE__*/ defineComponent({
     },
 
     onClose() {
+      if (!this.show) return;
       this.$emit("update:show", this.show);
     },
 
