@@ -13,7 +13,9 @@
 </template>
 
 <script>
-export default {
+import { defineComponent } from "vue";
+
+export default /*#__PURE__*/ defineComponent({
   name: "ShareModule",
 
   props: {
@@ -43,7 +45,7 @@ export default {
       return this.$parent?.$parent?.mode || this.mode;
     },
   },
-};
+});
 </script>
 
 <style scoped>
