@@ -52,7 +52,6 @@ export default defineComponent({
     <share-modal
       :show="showModal"
       @update:show="showModal = false"
-      :variables="variables"
       link="https://www.figma.com/community/file/999287868143091993"
     >
       <template v-for="(m, key) in modules" :key="key">
