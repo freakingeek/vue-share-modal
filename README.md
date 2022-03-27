@@ -4,7 +4,7 @@
 A pure, lightweight, and beautiful share modal for Vue 3  
   ‌
 
-![screenshot](https://github.com/sttatusx/vue-share-modal/raw/main/screenshot.png)  
+![screenshot](https://github.com/sttatusx/vue-share-modal/raw/master/screenshot.png)  
 
   ‌
 
