@@ -1,0 +1,1 @@
+body{height:100vh;display:flex;overflow:hidden;align-items:center;justify-content:center}button{outline:0;cursor:pointer;color:#fefefe;padding:1rem 1.5rem;border-radius:.5rem;transition:ease .5s all;background-color:#ee6c4d;border:1px solid transparent;font-family:Inter,sans-serif}button:hover{color:#ee6c4d;border:1px solid #ee6c4d;background-color:transparent}
