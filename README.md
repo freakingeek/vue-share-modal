@@ -7,6 +7,11 @@ A pure, lightweight, and beautiful share modal for Vue 3
 ![screenshot](https://github.com/sttatusx/vue-share-modal/raw/main/screenshot.png)  
 
   ‌
+
+## 🪁 Live version
+You can see the live version here:  
+[https://sttatusx.github.io/vue-share-modal/](https://sttatusx.github.io/vue-share-modal/)
+
   ‌
 
 ## 💾 Install
