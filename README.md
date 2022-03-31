@@ -220,8 +220,14 @@ export default {
   />
 </share-modal>
 ```
+
   ‌
 
+## ✏ Todo
+
+- [ ] Support for different themes
+
+  ‌
 
 ## 📝 License
 
